@@ -1,5 +1,7 @@
 package alketon.kadastr.models;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,48 +19,59 @@ public class Client {
     private Long id;
 
     @Column(name = "family_name")
+    @JsonView(Views.ClientData.class)
     private String familyName;
 
     @Column(name = "first_name")
+    @JsonView(Views.ClientData.class)
     private String firstName;
 
     @Column(name = "patronymic_name")
+    @JsonView(Views.ClientData.class)
     private String patronymicName;
 
     @Column(name = "date_birth")
+    @JsonView(Views.ClientData.class)
     private String dateBirth;
 
     @Column(name = "pas_serial_number")
+    @JsonView(Views.ClientData.class)
     private String pasSerialNumber;
 
     @Column(name = "pas_issued")
+    @JsonView(Views.ClientData.class)
     private String pasIssued;
 
     @Column(name = "pas_date")
+    @JsonView(Views.ClientData.class)
     private String pasDate;
 
-    @Column(name = "pas_address_birth")
-    private String pasAddressBirth;
-
     @Column(name = "address_residence")
+    @JsonView(Views.ClientData.class)
     private String addressResidence;
 
     @Column(name = "address_registration")
+    @JsonView(Views.ClientData.class)
     private String addressRegistration;
 
     @Column(name = "snils")
+    @JsonView(Views.ClientData.class)
     private String snils;
 
     @Column(name = "phone_mobile")
+    @JsonView(Views.ClientData.class)
     private String phoneMobile;
 
     @Column(name = "phone_job")
+    @JsonView(Views.ClientData.class)
     private String phoneJob;
 
     @Column(name = "phone_home")
+    @JsonView(Views.ClientData.class)
     private String phoneHome;
 
     @Column(name = "email")
+    @JsonView(Views.ClientData.class)
     private String email;
 
     @Column(name = "password")
@@ -129,14 +142,6 @@ public class Client {
 
     public void setPasDate(String pasDate) {
         this.pasDate = pasDate;
-    }
-
-    public String getPasAddressBirth() {
-        return pasAddressBirth;
-    }
-
-    public void setPasAddressBirth(String pasAddressBirth) {
-        this.pasAddressBirth = pasAddressBirth;
     }
 
     public String getAddressResidence() {

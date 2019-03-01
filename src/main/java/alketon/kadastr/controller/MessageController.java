@@ -73,7 +73,6 @@ public class MessageController {
         client.setSnils(order.get("snils"));
         client.setAddressResidence(order.get("addressResidence"));
         client.setAddressRegistration(order.get("addressRegistration"));
-        client.setPasAddressBirth(order.get("pasAddressBirth"));
         client.setDateBirth(order.get("dateBirth"));
         client.setPasDate(order.get("pasDate"));
         clientRepo.save(client);

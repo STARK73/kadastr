@@ -2,58 +2,68 @@ package alketon.kadastr.controller;
 
 import alketon.kadastr.models.Client;
 import alketon.kadastr.models.Contract;
+import alketon.kadastr.models.Views;
 import alketon.kadastr.repos.ClientRepo;
-import alketon.kadastr.repos.MessageRepo;
+import alketon.kadastr.repos.ContractRepo;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
-@RequestMapping("/order")
-public class OrderController {
+@RequestMapping("/orderapi")
+public class OrderApiController {
+
+    private final ContractRepo contractRepo;
+    private final ClientRepo clientRepo;
 
     @Autowired
-    private ClientRepo clientRepo;
+    public OrderApiController(ContractRepo contractRepo, ClientRepo clientRepo) {
+        this.clientRepo = clientRepo;
+        this.contractRepo = contractRepo;
+    }
 
     @GetMapping
-    public ModelAndView test() {
-        Map<String, String> model = new HashMap<>();
-        model.put("id", "1");
-        model.put("text", "test");
-
-         List<Map<String, String>> order = new ArrayList<Map<String, String>>() {{
-            add(new HashMap<String, String>() {{ put("id", "1"); put("text", "Межевание земельных участков"); }});
-            add(new HashMap<String, String>() {{ put("id", "2"); put("text", "Подготовка техннических планов"); }});
-            add(new HashMap<String, String>() {{ put("id", "3"); put("text", "Вынос границ земельного участка"); }});
-            add(new HashMap<String, String>() {{ put("id", "4"); put("text", "Топографическая съемка"); }});
-        }};
-        return new ModelAndView("order", model);
+    @JsonView(Views.ShowList.class)
+    public List<Contract> list() {
+       return contractRepo.findAll();
     }
 
     @GetMapping("{id}")
-    public ModelAndView getOne(@PathVariable String id) {
-        Map<String, String> model = new HashMap<>();
-        model.put("id", "1");
-        model.put("text", "test");
+    @JsonView(Views.FullContract.class)
+    public Contract getOne(@PathVariable("id") Contract contract) {
+        return contract;
+    }
 
-        List<Map<String, String>> order = new ArrayList<Map<String, String>>() {{
-            add(new HashMap<String, String>() {{ put("id", "1"); put("text", "Межевание земельных участков"); }});
-            add(new HashMap<String, String>() {{ put("id", "2"); put("text", "Подготовка техннических планов"); }});
-            add(new HashMap<String, String>() {{ put("id", "3"); put("text", "Вынос границ земельного участка"); }});
-            add(new HashMap<String, String>() {{ put("id", "4"); put("text", "Топографическая съемка"); }});
-        }};
-        return new ModelAndView("order", model);
+    @PostMapping("/search")
+    @JsonView(Views.FullContract.class)
+    public List<Contract> search(@RequestBody Map<String, String> find) {
+        return contractRepo.findByAddressObjectContainingAndFamilyNameContains(find.get("addressObject"),  find.get("familyName"));
     }
 
     @PostMapping()
     public Map<String, String> create(@RequestBody Map<String, String> order) {
 
         Client client = new Client();
+        //TODO поиск
+
         Contract contact = new Contract();
+        contact.setFamilyName(order.get("familyName"));
+        contact.setFirstName(order.get("firstName"));
+        contact.setPatronymicName(order.get("patronymicName"));
+        contact.setEmail(order.get("email"));
+        contact.setPhoneMobile(order.get("phoneMobile"));
+        contact.setPhoneHome(order.get("phoneHome"));
+        contact.setPhoneJob(order.get("phoneJob"));
+        contact.setPasSerialNumber(order.get("pasSerialNumber"));
+        contact.setPasIssued(order.get("pasIssued"));
+        contact.setSnils(order.get("snils"));
+        contact.setAddressResidence(order.get("addressResidence"));
+        contact.setAddressRegistration(order.get("addressRegistration"));
+        contact.setDateBirth(order.get("dateBirth"));
+        contact.setPasDate(order.get("pasDate"));
+
         contact.setAddressObject(order.get("addressObject"));
         contact.setTypeProperty(order.get("typeProperty"));
         contact.setTargetPlacing(order.get("targetPlacing"));

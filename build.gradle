@@ -18,6 +18,7 @@ dependencies {
 	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
 	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	compile 'org.hibernate:hibernate-search-orm'
 	compile 'javax.xml.bind:jaxb-api'
 	compile 'com.sun.xml.bind:jaxb-core'
 	compile 'com.sun.xml.bind:jaxb-impl'
