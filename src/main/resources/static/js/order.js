@@ -1,4 +1,4 @@
-var messageApi = Vue.resource('/orderapi')
+var messageApi = Vue.resource('/api/order')
 
 
 

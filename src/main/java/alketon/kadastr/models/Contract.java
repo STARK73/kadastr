@@ -32,7 +32,7 @@ public class Contract {
 
     @Column(name = "cadastral_num")
     @JsonView(Views.FullContract.class)
-    private Integer cadastralNum;
+    private String cadastralNum;
 
     @Column(name = "address_object")
     @JsonView(Views.ShowList.class)
@@ -130,33 +130,125 @@ public class Contract {
     @JsonView(Views.FullContract.class)
     private String proxy;
 
-    @Column(name = "is_mez")
+    @Column(name = "order_mej")
     @JsonView(Views.ShowList.class)
-    private boolean isMez;
+    private String orderMej;
 
-    @Column(name = "is_shem")
+    @Column(name = "order_mej_obr")
     @JsonView(Views.ShowList.class)
-    private boolean isShem;
+    private String orderMejObr;
 
-    @Column(name = "is_tex_plan")
+    @Column(name = "order_shem_rasp")
     @JsonView(Views.ShowList.class)
-    private boolean isTexPlan;
+    private String orderShemRasp;
 
-    @Column(name = "is_sogl_isp")
+    @Column(name = "order_tex_plan")
     @JsonView(Views.ShowList.class)
-    private boolean isSoglIsp;
+    private String orderTexPlan;
 
-    @Column(name = "is_mez_sx")
+    @Column(name = "order_sogl_opr")
     @JsonView(Views.ShowList.class)
-    private boolean isMezSX;
+    private String orderSoglOpr;
 
-    @Column(name = "is_vyn")
+    @Column(name = "order_vun")
     @JsonView(Views.ShowList.class)
-    private boolean isVyn;
+    private String orderVun;
 
-    @Column(name = "is_akt_obs")
+    @Column(name = "order_mez_sx")
     @JsonView(Views.ShowList.class)
-    private boolean isAktObs;
+    private String orderMezSX;
+
+    @Column(name = "order_akt_obs")
+    @JsonView(Views.ShowList.class)
+    private String orderAktObs;
+
+    @Column(name = "number")
+    @JsonView(Views.FullContract.class)
+    private String number;
+
+    @Column(name = "sum")
+    @JsonView(Views.FullContract.class)
+    private String sum;
+
+    public String getSum() {
+        return sum;
+    }
+
+    public void setSum(String sum) {
+        this.sum = sum;
+    }
+
+    public String getOrderMejObr() {
+        return orderMejObr;
+    }
+
+    public void setOrderMejObr(String orderMejObr) {
+        this.orderMejObr = orderMejObr;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getOrderMej() {
+        return orderMej;
+    }
+
+    public void setOrderMej(String orderMej) {
+        this.orderMej = orderMej;
+    }
+
+    public String getOrderShemRasp() {
+        return orderShemRasp;
+    }
+
+    public void setOrderShemRasp(String orderShemRasp) {
+        this.orderShemRasp = orderShemRasp;
+    }
+
+    public String getOrderTexPlan() {
+        return orderTexPlan;
+    }
+
+    public void setOrderTexPlan(String orderTexPlan) {
+        this.orderTexPlan = orderTexPlan;
+    }
+
+    public String getOrderSoglOpr() {
+        return orderSoglOpr;
+    }
+
+    public void setOrderSoglOpr(String orderSoglOpr) {
+        this.orderSoglOpr = orderSoglOpr;
+    }
+
+    public String getOrderVun() {
+        return orderVun;
+    }
+
+    public void setOrderVun(String orderVun) {
+        this.orderVun = orderVun;
+    }
+
+    public String getOrderMezSX() {
+        return orderMezSX;
+    }
+
+    public void setOrderMezSX(String orderMezSX) {
+        this.orderMezSX = orderMezSX;
+    }
+
+    public String getOrderAktObs() {
+        return orderAktObs;
+    }
+
+    public void setOrderAktObs(String orderAktObs) {
+        this.orderAktObs = orderAktObs;
+    }
 
     public String getProxy() {
         return proxy;
@@ -164,62 +256,6 @@ public class Contract {
 
     public void setProxy(String proxy) {
         this.proxy = proxy;
-    }
-
-    public boolean isMez() {
-        return isMez;
-    }
-
-    public void setMez(boolean mez) {
-        isMez = mez;
-    }
-
-    public boolean isShem() {
-        return isShem;
-    }
-
-    public void setShem(boolean shem) {
-        isShem = shem;
-    }
-
-    public boolean isTexPlan() {
-        return isTexPlan;
-    }
-
-    public void setTexPlan(boolean texPlan) {
-        isTexPlan = texPlan;
-    }
-
-    public boolean isSoglIsp() {
-        return isSoglIsp;
-    }
-
-    public void setSoglIsp(boolean soglIsp) {
-        isSoglIsp = soglIsp;
-    }
-
-    public boolean isMezSX() {
-        return isMezSX;
-    }
-
-    public void setMezSX(boolean mezSX) {
-        isMezSX = mezSX;
-    }
-
-    public boolean isVyn() {
-        return isVyn;
-    }
-
-    public void setVyn(boolean vyn) {
-        isVyn = vyn;
-    }
-
-    public boolean isAktObs() {
-        return isAktObs;
-    }
-
-    public void setAktObs(boolean aktObs) {
-        isAktObs = aktObs;
     }
 
     public Long getId() {
@@ -254,11 +290,11 @@ public class Contract {
         this.dateClosing = dateClosing;
     }
 
-    public Integer getCadastralNum() {
+    public String getCadastralNum() {
         return cadastralNum;
     }
 
-    public void setCadastralNum(Integer cadastralNum) {
+    public void setCadastralNum(String cadastralNum) {
         this.cadastralNum = cadastralNum;
     }
 

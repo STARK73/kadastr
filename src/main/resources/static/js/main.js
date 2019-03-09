@@ -8,7 +8,7 @@ function getIndex(list, id) {
     return -1;
 }
 
-var messageApi = Vue.resource('/order{/id}')
+var messageApi = Vue.resource('/api/order{/id}')
 
 Vue.component('order-form', {
     props: ['messages', 'messageAttr'],

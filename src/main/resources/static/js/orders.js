@@ -1,5 +1,5 @@
-var orderApi = Vue.resource('/orderapi')
-var orderApiSearch = Vue.resource('/orderapi/search')
+var orderApi = Vue.resource('/api/order')
+var orderApiSearch = Vue.resource('/api/order/search')
 Vue.component('order-find', {
     props: ['orders'],
     data: function () {

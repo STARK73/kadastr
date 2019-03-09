@@ -3,13 +3,10 @@ package alketon.kadastr.controller;
 import alketon.kadastr.models.Client;
 import alketon.kadastr.models.Contract;
 import alketon.kadastr.repos.ClientRepo;
-import alketon.kadastr.repos.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
