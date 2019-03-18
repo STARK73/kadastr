@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
-@RequestMapping("/message")
+@RequestMapping("/api/message")
 public class MessageController {
 
     private int count = 4;

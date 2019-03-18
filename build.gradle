@@ -1,6 +1,6 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.3.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'java'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -10,27 +10,26 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
-	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	compile 'org.hibernate:hibernate-search-orm'
-	compile 'javax.xml.bind:jaxb-api'
-	compile 'com.sun.xml.bind:jaxb-core'
-	compile 'com.sun.xml.bind:jaxb-impl'
-	compile 'mysql:mysql-connector-java'
-	compile group: 'org.docx4j', name: 'docx4j', version: '6.1.0'
-	compile group: 'com.ibm.icu', name: 'icu4j', version: '63.1'
-	compile group: 'javax.xml', name: 'jaxp-api', version: '1.4.2'
-	compile group: 'javax.xml.parsers', name: 'jaxp-api', version: '1.4.5'
-	compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.1.3.RELEASE'
-
-
-
-
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.hibernate:hibernate-search-orm'
+    compile 'javax.xml.bind:jaxb-api'
+    compile 'com.sun.xml.bind:jaxb-core'
+    compile 'com.sun.xml.bind:jaxb-impl'
+    compile 'mysql:mysql-connector-java'
+    compile group: 'org.docx4j', name: 'docx4j', version: '6.1.0'
+    compile group: 'com.ibm.icu', name: 'icu4j', version: '63.1'
+    compile group: 'javax.xml', name: 'jaxp-api', version: '1.4.2'
+    compile group: 'javax.xml.parsers', name: 'jaxp-api', version: '1.4.5'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.1.3.RELEASE'
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.RELEASE')
+    
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
